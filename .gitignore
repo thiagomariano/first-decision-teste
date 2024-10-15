@@ -1,0 +1,15 @@
+# Arquivos de sistema
+.env
+*.log
+
+# Diretórios do Composer e NPM
+/vendor/
+/node_modules/
+
+# Cache do Laravel
+/storage/*.key
+/storage/*.log
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
