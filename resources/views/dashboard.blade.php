@@ -30,7 +30,7 @@
                             <tr>
                                 <td class="border border-gray-300 px-4 py-2">{{ $dados->name }}</td>
                                 <td class="border border-gray-300 px-4 py-2">{{ $dados->email }}</td>
-                                <td class="border border-gray-300 px-4 py-2">{{ $dados->created_at->format('d/m/Y') }}</td>
+                                <td class="border border-gray-300 px-4 py-2">{{ $dados->created_at?->format('d/m/Y H:i:s') ?? '' }}</td>
                                 <td class="border border-gray-300 px-4 py-2">
 
                                     <a href="{{ route('edit', $dados->id) }}" class="btn btn-primary btn-sm">
@@ -38,10 +38,10 @@
                                     </a>
 
                                     @if(\Illuminate\Support\Facades\Auth::user()->id != $dados->id)
-                                    <form action="{{ route('delete', $dados->id) }}" method="POST"
+                                    <form action="{{ route('delete', $dados->id) }}" method="get"
                                           style="display:inline;">
                                         @csrf
-                                        @method('DELETE')
+                                        @method('get')
                                         <button type="submit" class="btn btn-danger btn-sm"
                                                 onclick="return confirm('Tem certeza que deseja excluir?');">
                                             Excluir

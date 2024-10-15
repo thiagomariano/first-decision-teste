@@ -45,6 +45,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard')->with('success', 'Usuário registrado com sucesso!')->setStatusCode(302);
+        return redirect()->route('lista')->with('success', 'Usuário registrado com sucesso!')->setStatusCode(302);
     }
 }

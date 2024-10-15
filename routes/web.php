@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/update', [UserController::class, 'update'])->name('update');
     Route::post('/store', [UserController::class, 'store'])->name('store');
 
-    Route::delete('/delete', [UserController::class, 'delete'])->name('delete');
+    Route::get('/delete/{id}', [UserController::class, 'delete'])->name('delete');
 });
 
 #rota do teste unitário dem autenticacao

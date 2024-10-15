@@ -43,6 +43,7 @@ class UserController extends Controller
 
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+
         $request->user()->fill($request->validated());
         $request->user()->save();
 
@@ -68,10 +69,11 @@ class UserController extends Controller
 
     }
 
-    public function delete(Request $request): RedirectResponse
+    public function delete($id): RedirectResponse
     {
-        $user = $request->user();
-        $user->delete();
+
+        $usuario = User::find($id);
+        $usuario->delete();
 
         return redirect()->to('/lista')->with('message', 'Usuário excluido com sucesso!');
 
